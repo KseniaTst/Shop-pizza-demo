@@ -8,6 +8,6 @@ export const PizzasAPI={
         return instance.get('items' )
     },
     getSortedPizzas(sortBy:string){
-      return instance.get(`items?_sort=${sortBy}&_order=desc`)
+      return instance.get(`items`, {params:{sortBy, order:'desc'}})
     }
 }
