@@ -1,1 +1,3 @@
-web: node server.ts
+import {jsonServer} from "./server";
+
+web: jsonServer.Node();
