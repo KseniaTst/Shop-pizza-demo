@@ -48,8 +48,10 @@ export const setPizzaSizeAC=(size:number)=>({type:'SET-PIZZA-SIZE', size} as con
 
 export const fetchPizzasTC=()=>(dispatch:AppDispatch)=>{
     dispatch(setIsLoadedAC(false))
+
 PizzasAPI.getPizzas()
     .then(res=>{
+        debugger
         dispatch(setPizzasAC(res.data))
         dispatch(setIsLoadedAC(true))
     })

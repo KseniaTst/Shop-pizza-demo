@@ -1,15 +1,13 @@
 import axios from "axios";
 
 const instance = axios.create({
-    baseURL: '/pizzas',
-    withCredentials: true,
-});
+    baseURL: 'https://62fcdd5db9e38585cd47a131.mockapi.io/'});
 
 export const PizzasAPI={
     getPizzas(){
-        return instance.get('' )
+        return instance.get('items' )
     },
     getSortedPizzas(sortBy:string){
-      return instance.get(`?_sort=${sortBy}&_order=desc`)
+      return instance.get(`items?_sort=${sortBy}&_order=desc`)
     }
 }
