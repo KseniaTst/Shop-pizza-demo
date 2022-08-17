@@ -1,7 +1,14 @@
 import {CartItem} from "../Components/Cart/CartItem";
 import {useSelector} from "react-redux";
 import {RootStateType, useAppDispatch} from "../Data/state";
-import {CartStateType, clearCartAC, pizzaCartData} from "../Data/Cart-reducer";
+import {
+    CartStateType,
+    clearCartAC,
+    minusCartItemAC,
+    pizzaCartData,
+    plusCartItemAC,
+    removeCartItemAC
+} from "../Data/Cart-reducer";
 import {EmptyCart} from "../Components/Cart/EmptyCart";
 import {Link} from "react-router-dom";
 
@@ -17,6 +24,15 @@ export function Cart() {
 
     const onClickClearCart=()=>{
         dispatch(clearCartAC())
+    }
+    const onRemoveCartItem = (id:number)=>{
+        dispatch(removeCartItemAC(id))
+    }
+    const onPlusCartItem=(id:number)=>{
+        dispatch(plusCartItemAC(id))
+    }
+    const onMinusCartItem=(id:number)=>{
+        dispatch(minusCartItemAC(id))
     }
 
     return (
@@ -63,10 +79,12 @@ export function Cart() {
                                 </div>
                             </div>
                             <div className="content__items">
-                                { pizzas.map(p => {
+                                {pizzas.map(p => {
                                     return <CartItem name={p.name} totalPrice={items[p.id].totalPizzaPrice}
                                                      img={p.imageUrl} type={p.activeType}
-                                                     size={p.activeSize} totalCount={items[p.id].items.length}/>
+                                                     size={p.activeSize} totalCount={items[p.id].items.length}
+                                                     id={p.id} removeCartItem={onRemoveCartItem}
+                                    plusCartItem={onPlusCartItem} minusCartItem={onMinusCartItem}/>
                                 })}
 
                             </div>

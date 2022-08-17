@@ -43,6 +43,18 @@ export const CartReducer = (state: CartStateType = initialState, action: ActionT
                 totalCount: allPizzas.length,
                 totalPrice
             }
+        case "REMOVE-CART-ITEM":
+            const updatedObject = {...state.items}
+            const currentTotalPrice = updatedObject[action.id].totalPizzaPrice
+            const currentCount = updatedObject[action.id].items.length
+            delete updatedObject[action.id]
+            return {
+                ...state,
+                items: updatedObject,
+                totalPrice: state.totalPrice - currentTotalPrice,
+                totalCount:state.totalCount-currentCount
+            }
+
         case "CLEAR-CART":
             return {
                 ...state,
@@ -59,6 +71,9 @@ export const setTotalPriceAC = (price: number) => ({type: 'SET-TOTAL-PRICE', pri
 export const setTotalCountAC = (count: number) => ({type: 'SET-TOTAL-COUNT', count} as const)
 export const setPizzaDataToCartAC = (data: pizzaCartData) => ({type: 'SET-PIZZA-TO-CART', data} as const)
 export const clearCartAC = () => ({type: 'CLEAR-CART'} as const)
+export const removeCartItemAC=(id:number)=>({type:'REMOVE-CART-ITEM', id} as const )
+export const plusCartItemAC=(id:number)=>({type:'PLUS-CART-ITEM', id} as const)
+export const minusCartItemAC=(id:number)=>({type:'MINUS-CART-ITEM', id} as const)
 
 
 //types
@@ -66,6 +81,9 @@ type ActionType = ReturnType<typeof setTotalPriceAC>
     | ReturnType<typeof setTotalCountAC>
     | ReturnType<typeof setPizzaDataToCartAC>
     | ReturnType<typeof clearCartAC>
+    | ReturnType<typeof removeCartItemAC>
+|ReturnType<typeof plusCartItemAC>
+|ReturnType<typeof minusCartItemAC>
 
 export type pizzaCartData = {
     id: number,
