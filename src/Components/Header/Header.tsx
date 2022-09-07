@@ -14,7 +14,7 @@ function Header() {
     return (
         <div className="header">
             <div className="container">
-                <NavLink to={'/home '}>
+                <NavLink to={'home '}>
                 <div className="header__logo">
                     <img width="38" src={logo} alt="Pizza logo"/>
                     <div>
@@ -24,7 +24,7 @@ function Header() {
                 </div>
                 </NavLink>
                 <div className="header__cart">
-                    <NavLink to={'/cart'}>
+                    <NavLink to={'cart'}>
                         <Button cart>
                             <span>{totalPrice} ₽</span>
                             <div className="button__delimiter"></div>
