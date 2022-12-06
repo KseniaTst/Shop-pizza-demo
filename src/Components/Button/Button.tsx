@@ -10,6 +10,7 @@ type PropsType = {
 }
 
 function Button(props: PropsType) {
+
     return (
         <button className={classNames('button', {
             'button--cart': props.cart,

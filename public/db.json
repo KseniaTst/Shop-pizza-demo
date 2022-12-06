@@ -99,6 +99,16 @@
       "price": 285,
       "category": 2,
       "rating": 7
+    },
+    {
+      "id": 10,
+      "imageUrl": "https://mixsalsk.ru/wp-content/uploads/2019/02/super-miks.jpg",
+      "name": "с тунцом",
+      "types": [0, 1],
+      "sizes": [26, 30, 40],
+      "price": 389,
+      "category": 1,
+      "rating": 6
     }
   ]
 }

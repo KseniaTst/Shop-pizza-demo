@@ -1,5 +1,5 @@
 // @ts-ignore
-import frontPage from '../assets/img/pizzaFront.jpg'
+import frontPage from '../assets/img/pizzaFront.png'
 import Button from "../Components/Button/Button";
 import {NavLink} from "react-router-dom";
 import '../scss/components/front-page.scss'
